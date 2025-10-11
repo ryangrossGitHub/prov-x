@@ -1,0 +1,42 @@
+type Query {
+    entityById(id: String): Entity
+}
+
+type Mutation {
+    createEntity(input: EntityInput): Entity
+}
+
+type Entity {
+    id: String
+    wasDerivedFrom: [Entity]
+    wasGeneratedBy: Activity
+    wasAttributedTo: Agent
+}
+
+input EntityInput {
+    id: String
+    wasDerivedFrom: [EntityInput]
+    wasGeneratedBy: ActivityInput
+    wasAttributedTo: AgentInput
+}
+
+type Activity {
+    id: String
+    startedAtTime: String
+    endedAtTime: String
+}
+
+input ActivityInput {
+    startedAtTime: String
+    endedAtTime: String
+}
+
+type Agent {
+    id: String
+    actedOnBehalfOf: Agent
+}
+
+input AgentInput {
+    id: String
+    actedOnBehalfOf: AgentInput
+}
