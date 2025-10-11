@@ -1,42 +1,25 @@
 type Query {
-    entityById(id: String): Entity
+    heartbeat: String
 }
 
 type Mutation {
-    createEntity(input: EntityInput): Entity
+    upsertProv(input: Entity): String
 }
 
-type Entity {
+input Entity {
     id: String
     wasDerivedFrom: [Entity]
     wasGeneratedBy: Activity
     wasAttributedTo: Agent
 }
 
-input EntityInput {
-    id: String
-    wasDerivedFrom: [EntityInput]
-    wasGeneratedBy: ActivityInput
-    wasAttributedTo: AgentInput
-}
-
-type Activity {
+input Activity {
     id: String
     startedAtTime: String
     endedAtTime: String
 }
 
-input ActivityInput {
-    startedAtTime: String
-    endedAtTime: String
-}
-
-type Agent {
+input Agent {
     id: String
     actedOnBehalfOf: Agent
-}
-
-input AgentInput {
-    id: String
-    actedOnBehalfOf: AgentInput
 }

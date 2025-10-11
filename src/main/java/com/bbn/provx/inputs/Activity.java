@@ -1,4 +1,4 @@
-package com.bbn.provx;
+package com.bbn.provx.inputs;
 
 public class Activity {
     
@@ -37,5 +37,4 @@ public class Activity {
     public void setEndedAtTime(String endedAtTime) {
         this.endedAtTime = endedAtTime;
     }
-
 }

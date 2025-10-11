@@ -1,4 +1,4 @@
-package com.bbn.provx;
+package com.bbn.provx.inputs;
 
 public class Agent {
 
