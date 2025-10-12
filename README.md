@@ -2,6 +2,10 @@
 
 A graphql service for capturing provenance data against either semantic or property graphs.
 
+## Environment Variables
+These must be set for the application to start up.
+- GRAPH_QUERY_LANGUAGE (Options: SPARQL, CYPHER)
+
 ## Query Example
 
 ```graphql
