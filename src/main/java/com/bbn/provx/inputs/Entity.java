@@ -6,18 +6,17 @@ public class Entity {
 
     private String id;
     private List<Entity> wasDerivedFrom;
-    private Activity wasGeneratedBy;
-    private Agent wasAttributedTo;
+    private List<Activity> wasGeneratedBy;
+    private List<Agent> wasAttributedTo;
     
-    public Entity(String id, List<Entity> wasDerivedFrom, Activity wasGeneratedBy, Agent wasAttributedTo) {
+    public Entity() {
+    }
+
+    public Entity(String id, List<Entity> wasDerivedFrom, List<Activity> wasGeneratedBy, List<Agent> wasAttributedTo) {
         this.id = id;
         this.wasDerivedFrom = wasDerivedFrom;
         this.wasGeneratedBy = wasGeneratedBy;
         this.wasAttributedTo = wasAttributedTo;
-    }
-
-    public void setWasGeneratedBy(Activity activity) {
-        this.wasGeneratedBy = activity;
     }
 
     public String getId() {
@@ -28,11 +27,27 @@ public class Entity {
         return wasDerivedFrom;
     }
 
-    public Activity getWasGeneratedBy() {
+    public List<Activity> getWasGeneratedBy() {
         return wasGeneratedBy;
     }
 
-    public Agent getWasAttributedTo() {
+    public List<Agent> getWasAttributedTo() {
         return wasAttributedTo;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setWasDerivedFrom(List<Entity> wasDerivedFrom) {
+        this.wasDerivedFrom = wasDerivedFrom;
+    }  
+
+    public void setWasAttributedTo(List<Agent> wasAttributedTo) {
+        this.wasAttributedTo = wasAttributedTo;
+    }
+
+    public void setWasGeneratedBy(List<Activity> wasGeneratedBy) {
+        this.wasGeneratedBy = wasGeneratedBy;
     }
 }

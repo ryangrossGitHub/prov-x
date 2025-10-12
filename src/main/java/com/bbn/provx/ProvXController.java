@@ -1,6 +1,6 @@
 package com.bbn.provx;
 
-import java.util.Calendar;
+import java.time.Instant;
 import java.util.UUID;
 
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -8,8 +8,7 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
-import com.bbn.provx.inputs.Activity;
-import com.bbn.provx.inputs.Entity;
+import com.bbn.provx.inputs.Bundle;
 
 @Controller
 public class ProvXController {
@@ -19,24 +18,19 @@ public class ProvXController {
     }
 
     @MutationMapping
-    public String upsertProv(@Argument Entity input) {
-        Activity activity;
+    public String upsertProv(@Argument("input") Bundle bundle) {
+        System.out.println(bundle);
+        if (bundle != null && 
+            (bundle.getActivities() != null && !bundle.getActivities().isEmpty() || 
+                bundle.getEntities() != null && !bundle.getEntities().isEmpty() || 
+                bundle.getAgents() != null && !bundle.getAgents().isEmpty())) {
+            
+                    bundle.setId(UUID.randomUUID().toString());
+                    bundle.setGeneratedAtTime(Instant.now().toEpochMilli());
 
-        if (input.getWasGeneratedBy() != null) {
-            activity = input.getWasGeneratedBy();
-        } else {
-            activity = new Activity();
+                    return "Success";
+        }else {
+            return "Provide at least one activity, entity, or agent to upsert.";
         }
-        
-        activity.setId(UUID.randomUUID().toString());
-
-        if (activity.getStartedAtTime() == null) {
-            activity.setStartedAtTime(Calendar.getInstance().getTime().toString());
-        }
-        if (activity.getEndedAtTime() == null) {
-            activity.setEndedAtTime(activity.getStartedAtTime());
-        }
-
-        return "Success";
     }
 }

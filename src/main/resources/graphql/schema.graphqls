@@ -3,23 +3,32 @@ type Query {
 }
 
 type Mutation {
-    upsertProv(input: Entity): String
+    upsertProv(input: Bundle): String
+}
+
+input Bundle {
+    entities: [Entity]
+    activities: [Activity]
+    agents: [Agent]
 }
 
 input Entity {
     id: String
     wasDerivedFrom: [Entity]
-    wasGeneratedBy: Activity
-    wasAttributedTo: Agent
+    wasGeneratedBy: [Activity]
+    wasAttributedTo: [Agent]
 }
 
 input Activity {
     id: String
+    used: [Entity]
+    wasInformedBy: [Activity]
+    wasAssociatedWith: [Agent]
     startedAtTime: String
     endedAtTime: String
 }
 
 input Agent {
     id: String
-    actedOnBehalfOf: Agent
+    actedOnBehalfOf: [Agent]
 }

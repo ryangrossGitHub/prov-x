@@ -1,11 +1,16 @@
 package com.bbn.provx.inputs;
 
+import java.util.List;
+
 public class Agent {
 
     private String id; 
-    private Agent actedOnBehalfOf;
+    private List<Agent> actedOnBehalfOf;
 
-    public Agent(String id, Agent actedOnBehalfOf) {
+    public Agent() {
+    }
+
+    public Agent(String id, List<Agent> actedOnBehalfOf) {
         this.id = id;
         this.actedOnBehalfOf = actedOnBehalfOf;
     }
@@ -14,7 +19,7 @@ public class Agent {
         return id;
     }
 
-    public Agent getActedOnBehalfOf() {
+    public List<Agent> getActedOnBehalfOf() {
         return actedOnBehalfOf;
     }
 
@@ -22,7 +27,7 @@ public class Agent {
         this.id = id;
     }
 
-    public void setActedOnBehalfOf(Agent actedOnBehalfOf) {
+    public void setActedOnBehalfOf(List<Agent> actedOnBehalfOf) {
         this.actedOnBehalfOf = actedOnBehalfOf;
     }
 }
