@@ -6,6 +6,10 @@ A graphql service for capturing provenance data against either semantic or prope
 These must be set for the application to start up.
 - GRAPH_QUERY_LANGUAGE (Options: SPARQL, CYPHER)
 
+## GraphiQL UI
+Interactive query and mutation webpage located here: http://localhost:8080/graphiql
+
+
 ## Query Example
 
 ```graphql

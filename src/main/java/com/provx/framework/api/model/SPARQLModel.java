@@ -1,8 +1,8 @@
-package com.bbn.provx.model;
+package com.provx.framework.api.model;
 
 import org.springframework.stereotype.Service;
 
-import com.bbn.provx.input.Bundle;
+import com.provx.framework.api.input.Bundle;
 
 @Service
 public class SPARQLModel {

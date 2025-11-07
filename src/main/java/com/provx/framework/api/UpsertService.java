@@ -1,4 +1,4 @@
-package com.bbn.provx;
+package com.provx.framework.api;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -6,9 +6,9 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.bbn.provx.input.Bundle;
-import com.bbn.provx.model.CypherModel;
-import com.bbn.provx.model.SPARQLModel;
+import com.provx.framework.api.input.Bundle;
+import com.provx.framework.api.model.CypherModel;
+import com.provx.framework.api.model.SPARQLModel;
 
 @Service
 public class UpsertService {

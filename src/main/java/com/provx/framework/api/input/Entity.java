@@ -1,4 +1,4 @@
-package com.bbn.provx.input;
+package com.provx.framework.api.input;
 
 import java.util.List;
 

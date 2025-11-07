@@ -1,11 +1,11 @@
-package com.bbn.provx;
+package com.provx.framework.api;
 
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
-import com.bbn.provx.input.Bundle;
+import com.provx.framework.api.input.Bundle;
 
 @Controller
 public class GraphQLController {
